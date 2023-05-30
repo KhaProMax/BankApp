@@ -1,0 +1,53 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {
+      colors: {
+        "primary-color": "#5ec576",
+        "secondary-color": "#ffcb03",
+        "tertiary-color": "#ff585f",
+        "primary-darker-color": "#4bbb7d",
+        "secondary-darker-color": "#ffbb00",
+        "tertiary-darker-color": "#fd424b",
+        "primary-opacity-color": "#5ec5763a",
+        "secondary-opacity-color": "#ffcd0331",
+        "tertiary-opacity-color": "#ff58602d",
+        "gradient-primary": "gradient-to-r from-green-400 to-blue-500",
+        "gradient-secondary": "linear-gradient(to top left, #ffb003, #ffcb03)",
+        white: "#FFFFFF",
+        "custom-gray": "#37383d",
+        conifer: {
+          50: "#f3fce9",
+          100: "#e4f7d0",
+          200: "#caf0a6",
+          300: "#9be15d",
+          400: "#88d546",
+          500: "#68bb27",
+          600: "#4f951b",
+          700: "#3d7219",
+          800: "#335b19",
+          900: "#2e4d1a",
+          950: "#152a09",
+        },
+        keppel: {
+          50: "#eefbf5",
+          100: "#d5f6e5",
+          200: "#aeecce",
+          300: "#7adbb4",
+          400: "#39b385",
+          500: "#21a879",
+          600: "#138863",
+          700: "#0f6d51",
+          800: "#0f5641",
+          900: "#0d4737",
+          950: "#062820",
+        },
+      },
+      maxWidth: {
+        "1/2": "50%",
+      },
+    },
+  },
+  plugins: [],
+};

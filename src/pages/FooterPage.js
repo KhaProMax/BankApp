@@ -11,7 +11,6 @@ function FooterPage() {
             <li><button>Blog</button></li>
             <li><button>Contact Us</button></li>
         </ul>
-        <div></div>
         <img src={Icon} alt="logo" className="w-8 text-white mb-8"/>
         <p className="text-xs text-slate-400 font-light text-center">Originally built using VanillaJS by <span className="text-slate-100">Jonas Schmedtmann</span>. Re-built using React by <span className="text-slate-100">Kha</span>.</p>
         <p className="text-xs text-slate-400 font-light text-center">&copy; Copyright by <span className="text-slate-100">Jonas Schmedtmann</span>. Use for learning or your portfolio.</p>

@@ -8,13 +8,17 @@ import { useReducer } from "react";
 
 const reducer = (state, action) => {
   if (action.type === "MouseEnter") {
-    state.currentHover = action.payload;
     state.isHover = true;
+    if(action.payload === "button") {
+      state.currentHover = "button";
+    }
+    state.currentHover = action.payload;
   } else if (action.type === "MouseLeave") {
     state.isHover = false;
     state.currentHover = 0;
   }
 };
+
 function NavigationBar({ className }) {
   const { ref, inView } = useInView({
     /* Optional options */
@@ -53,7 +57,7 @@ function NavigationBar({ className }) {
     });
   };
 
-  const handleMouseLeave = (index) => {
+  const handleMouseLeave = () => {
     dispatch({
       type: "MouseLeave",
     });
@@ -64,7 +68,7 @@ function NavigationBar({ className }) {
       <Scroll
         key={scroll.id}
         id={scroll.id}
-        className="pl-8"
+        className=""
         selector={`#${scroll.label}`}
         onMouseEnter={() => handleMouseEnter(scroll.id)}
         onMouseLeave={() => handleMouseLeave()}
@@ -84,12 +88,24 @@ function NavigationBar({ className }) {
 
   return (
     <div ref={ref} className={classes}>
-      <div>
+      <div
+        className={`${
+          state.isHover && "opacity-30 transition-all duration-400"
+        }`}
+      >
         <img src={Nav_Logo} alt="navigation logo" className="w-40" />
       </div>
       <div className="flex items-center text-sm">
-        <div className="flex">{rendredScrollTab}</div>
-        <Button className="ml-8 py-3 px-6 pb-2.5">Open Account</Button>
+        <div className="flex w-80 justify-between">{rendredScrollTab}</div>
+        <Button
+          onMouseEnter={() => handleMouseEnter("button")}
+          onMouseLeave={() => handleMouseLeave()}
+          className={`ml-8 py-3 px-6 pb-2.5 ${
+            state.isHover && state.currentHover !== "button" && "opacity-30 transition-all duration-400"
+          }`}
+        >
+          Open Account
+        </Button>
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
 import classNames from "classnames";
 
-function Button({ children, className, onClick, style }) {
+function Button({ children, className, onClick, style, onMouseEnter, onMouseLeave }) {
   const classes = classNames(
     "rounded-3xl bg-primary-color hover:bg-primary-darker-color",
     className
   );
   return (
-    <button onClick={onClick} className={classes} style={style}>
+    <button onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onClick={onClick} className={classes} style={style}>
       {children}
     </button>
   );
